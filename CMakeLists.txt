@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(RackEvacuationPlanner
-  VERSION 1.0.0
+  VERSION 1.0.1
   DESCRIPTION "Deterministic rack evacuation planning (DCCP boundary 55)"
   HOMEPAGE_URL "https://github.com/summonlabs/Rack-Evacuation-Planner"
   LANGUAGES CXX)

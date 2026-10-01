@@ -19,7 +19,7 @@ namespace {
 constexpr std::string_view kBuildVersion = REP_BUILD_PROJECT_VERSION;
 constexpr std::string_view kHeaderVersion = REP_VERSION_STRING;
 
-static_assert(kHeaderVersion == "1.0.0",
+static_assert(kHeaderVersion == "1.0.1",
               "Header version must be kept in step with the CMake project version.");
 
 } // namespace

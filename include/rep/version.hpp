@@ -11,10 +11,10 @@
 
 #define REP_VERSION_MAJOR 1
 #define REP_VERSION_MINOR 0
-#define REP_VERSION_PATCH 0
+#define REP_VERSION_PATCH 1
 
-// Textual form of the compile-time version, e.g. "1.0.0".
-#define REP_VERSION_STRING "1.0.0"
+// Textual form of the compile-time version, e.g. "1.2.3".
+#define REP_VERSION_STRING "1.0.1"
 
 // Stable identifier of the boundary this implementation claims to own.
 #define REP_DCCP_BOUNDARY "55"
