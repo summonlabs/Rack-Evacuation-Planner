@@ -214,10 +214,13 @@ lock was lost — is returned as an `Error`. Callers can therefore always tell
 ## 6. Concurrency
 
 One mutex guards all mutable engine state. Every public method acquires it
-exactly once and drops it before returning; no public method calls another
-public method; no callback is invoked while it is held; nothing returns a
-reference into internal state. Plans, summaries, and statistics are returned by
-value.
+exactly once and drops it before returning, and none of them re-enters it: the
+one public method another public method reaches (`summarise`, called by
+`history`) performs no locking, and the store's publication path uses a kernel
+file lock rather than a mutex. No callback is invoked while the mutex is held —
+the engine's only caller-supplied callback, the optional epoch-claim clock, is
+called during `open`. Nothing returns a reference into engine state; plans,
+summaries, statistics, and reports are returned by value.
 
 The store's exclusion is a kernel file lock, not a mutex, and is independent of
 the in-process mutex, so it cannot participate in an in-process lock-ordering

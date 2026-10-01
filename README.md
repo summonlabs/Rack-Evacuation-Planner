@@ -329,14 +329,20 @@ addressed explicitly.
 
 ## Concurrency model
 
-One mutex guards all mutable engine state. Every public method takes it exactly
-once, no public method calls another public method, no callback is invoked while
-it is held, and no reference into internal state is returned to a caller. The
-manual audit of the call graph found no read-to-write reacquisition, no
-write-lock re-entry, no nested acquisition with inconsistent ordering, no lock
-inversion, no callback under lock, no join while holding a lock the workers
-need, and no cancellation path with reversed lock order. Plans and summaries are
-returned by value.
+One mutex guards all mutable engine state. Every public method acquires it
+exactly once, and none of them re-enters it: the only public method that another
+public method reaches — `summarise`, called by `history` — performs no locking
+and reads only its argument, and the store's publication path uses a kernel file
+lock rather than a mutex. No callback runs while the mutex is held: the engine's
+single caller-supplied callback, the optional clock used to stamp an epoch
+claim, is invoked during `open`, before the engine object exists. Nothing
+returns a reference into engine state; plans, summaries, statistics, and reports
+are returned by value.
+
+The audit of the call graph found no read-to-write reacquisition, no write-lock
+re-entry, no nested acquisition with inconsistent ordering, no lock inversion,
+no callback under lock, no join while holding a lock the workers need, and no
+cancellation path with reversed lock order.
 
 The store's exclusion is a kernel lock, not a mutex, and is independent of the
 in-process mutex, so it cannot participate in an in-process ordering cycle.

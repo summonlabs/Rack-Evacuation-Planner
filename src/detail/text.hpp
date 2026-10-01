@@ -46,15 +46,6 @@ namespace rep::detail {
   return true;
 }
 
-[[nodiscard]] inline bool parse_u32(std::string_view text, std::uint32_t& out) noexcept {
-  std::uint64_t wide = 0;
-  if (!parse_u64(text, wide) || wide > 0xffffffffull) {
-    return false;
-  }
-  out = static_cast<std::uint32_t>(wide);
-  return true;
-}
-
 [[nodiscard]] inline bool parse_bool(std::string_view text, bool& out) noexcept {
   if (text == "true") {
     out = true;

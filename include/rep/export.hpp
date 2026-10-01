@@ -18,10 +18,4 @@
 #define REP_API
 #endif
 
-#if defined(_MSC_VER)
-#define REP_NODISCARD [[nodiscard]]
-#else
-#define REP_NODISCARD [[nodiscard]]
-#endif
-
 #endif // REP_EXPORT_HPP
