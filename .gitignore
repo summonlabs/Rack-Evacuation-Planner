@@ -1,0 +1,51 @@
+# Build directories
+/build/
+/_build/
+/out/
+/install/
+/prefix/
+/artifacts/
+staging/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+install_manifest.txt
+*.cmake.stamp
+
+# Visual Studio / MSVC
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.user
+*.aps
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.lib
+*.dll
+*.exe
+*.pch
+*.ipch
+Debug/
+Release/
+RelWithDebInfo/
+MinSizeRel/
+
+# Test / runtime residue
+*.log
+*.dmp
+*.trace
+*.rep.tmp
+/rep-store-*/
+/tmp/
+scratch/

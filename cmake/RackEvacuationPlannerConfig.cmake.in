@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+set(RackEvacuationPlanner_VERSION "@PROJECT_VERSION@")
+
+include("${CMAKE_CURRENT_LIST_DIR}/RackEvacuationPlannerTargets.cmake")
+
+check_required_components(RackEvacuationPlanner)
