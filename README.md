@@ -3,7 +3,7 @@
 Deterministic evacuation planning for racks that must be isolated, drained,
 depowered, thermally constrained, or physically serviced.
 
-This repository implements **DCCP boundary 55** (version 1.0.1): it owns the *plan* that says
+This repository owns the *plan* that says
 what has to leave a rack, in what order, to which destination, what cannot leave
 yet and why, and whether the rack is proven safe for the requested isolation.
 
